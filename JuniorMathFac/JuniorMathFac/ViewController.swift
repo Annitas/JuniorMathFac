@@ -6,14 +6,24 @@
 //
 
 import UIKit
+import SnapKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+    let registrationView = TProfileSettingsView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.addSubview(registrationView)
+        setupConstraints()
     }
 
-
+    private func setupConstraints() {
+        registrationView.snp.makeConstraints { make in
+            make.top.equalToSuperview()        
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+        }
+    }
 }
 
