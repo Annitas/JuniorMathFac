@@ -9,20 +9,7 @@ import UIKit
 import SnapKit
 
 final class TMainScreenView: UIView {
-    private let profileContainerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .customGreen
-        view.layer.cornerRadius = 10
-        return view
-    }()
-    
-    private let profileLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Профиль"
-        label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        return label
-    }()
+    private let profileHeader = CustomHeaderTitle(title: "Профиль")
     
     private let backGroundImage: UIImageView = {
         let iv = UIImageView()
@@ -57,67 +44,19 @@ final class TMainScreenView: UIView {
         return label
     }()
     
-    private let makeRoomButton: UIButton = {
-        var configuration = UIButton.Configuration.filled()
-        configuration.buttonSize = .large
-        configuration.baseBackgroundColor = .button
-        configuration.baseForegroundColor = .buttonText
-        var container = AttributeContainer()
-        container.font = UIFont.boldSystemFont(ofSize: 20)
-        configuration.attributedTitle = AttributedString("Создать комнату", attributes: container)
-        let button = UIButton(configuration: configuration, primaryAction: nil)
-        configuration.titleAlignment = .center
-        return button
-    }()
-    
-    private let statisticsButton: UIButton = {
-        var configuration = UIButton.Configuration.filled()
-        configuration.buttonSize = .large
-        configuration.baseBackgroundColor = .button
-        configuration.baseForegroundColor = .buttonText
-        var container = AttributeContainer()
-        container.font = UIFont.boldSystemFont(ofSize: 20)
-        configuration.attributedTitle = AttributedString("Статистика", attributes: container)
-        let button = UIButton(configuration: configuration, primaryAction: nil)
-        configuration.titleAlignment = .center
-        return button
-    }()
-    
-    private let tasksButton: UIButton = {
-        var configuration = UIButton.Configuration.filled()
-        configuration.buttonSize = .large
-        configuration.baseBackgroundColor = .button
-        configuration.baseForegroundColor = .buttonText
-        var container = AttributeContainer()
-        container.font = UIFont.boldSystemFont(ofSize: 20)
-        configuration.attributedTitle = AttributedString("Задачи", attributes: container)
-        let button = UIButton(configuration: configuration, primaryAction: nil)
-        configuration.titleAlignment = .center
-        return button
-    }()
-    
-    private let rulesButton: UIButton = {
-        var configuration = UIButton.Configuration.filled()
-        configuration.buttonSize = .large
-        configuration.baseBackgroundColor = .button
-        configuration.baseForegroundColor = .buttonText
-        var container = AttributeContainer()
-        container.font = UIFont.boldSystemFont(ofSize: 20)
-        configuration.attributedTitle = AttributedString("Правила", attributes: container)
-        let button = UIButton(configuration: configuration, primaryAction: nil)
-        configuration.titleAlignment = .center
-        return button
-    }()
+    private let makeRoomButton = CustomButton(title: "Создать комнату")
+    private let statisticsButton = CustomButton(title: "Статистика")
+    private let tasksButton = CustomButton(title: "Задачи")
+    private let rulesButton = CustomButton(title: "Правила")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
         addSubview(backGroundImage)
         addSubview(backGroundCardImageView)
-        addSubview(profileContainerView)
         backGroundCardImageView.addSubview(avatarImageView)
         backGroundCardImageView.addSubview(nameLabel)
-        profileContainerView.addSubview(profileLabel)
+        backGroundImage.addSubview(profileHeader)
         addSubview(makeRoomButton)
         addSubview(statisticsButton)
         addSubview(tasksButton)
@@ -126,20 +65,14 @@ final class TMainScreenView: UIView {
     }
     
     private func addConstraints() {
-        profileContainerView.snp.makeConstraints { make in
+        profileHeader.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(70)
             make.centerX.equalToSuperview()
-            make.width.equalTo(profileLabel.intrinsicContentSize.width + 100) // Добавляем отступы
-            make.height.equalTo(profileLabel.intrinsicContentSize.height + 30) // Добавляем отступы
-        }
-        
-        profileLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
         }
         
         backGroundCardImageView.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.95)
-            make.top.equalTo(profileContainerView.snp.bottom).offset(20)
+            make.top.equalTo(profileHeader.snp.bottom).offset(20)
             make.height.equalToSuperview().multipliedBy(0.25)
             make.centerX.equalToSuperview()
         }
@@ -188,9 +121,5 @@ final class TMainScreenView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        addSubview(profileContainerView)
-        profileContainerView.addSubview(profileLabel)
-        
-        addConstraints()
     }
 }

@@ -13,6 +13,8 @@
 		755F6C1A2BA02DD9005B476D /* TMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F6C192BA02DD9005B476D /* TMainScreenView.swift */; };
 		755F6C1C2BA036D2005B476D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 755F6C1B2BA036D2005B476D /* Assets.xcassets */; };
 		755F6C382BA2C78F005B476D /* TRulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F6C372BA2C78F005B476D /* TRulesView.swift */; };
+		757A8D022BB4765500E3DF74 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A8CFF2BB4765500E3DF74 /* CustomButton.swift */; };
+		757A8D032BB4765500E3DF74 /* CustomHeaderTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A8D002BB4765500E3DF74 /* CustomHeaderTitle.swift */; };
 		75B38DFF2B0B534A000CF6EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B38DFE2B0B534A000CF6EF /* AppDelegate.swift */; };
 		75B38E012B0B534A000CF6EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B38E002B0B534A000CF6EF /* SceneDelegate.swift */; };
 		75B38E032B0B534A000CF6EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B38E022B0B534A000CF6EF /* ViewController.swift */; };
@@ -26,6 +28,8 @@
 		755F6C192BA02DD9005B476D /* TMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMainScreenView.swift; sourceTree = "<group>"; };
 		755F6C1B2BA036D2005B476D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		755F6C372BA2C78F005B476D /* TRulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRulesView.swift; sourceTree = "<group>"; };
+		757A8CFF2BB4765500E3DF74 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		757A8D002BB4765500E3DF74 /* CustomHeaderTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderTitle.swift; sourceTree = "<group>"; };
 		75B38DFB2B0B534A000CF6EF /* JuniorMathFac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JuniorMathFac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B38DFE2B0B534A000CF6EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75B38E002B0B534A000CF6EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,10 +90,19 @@
 			isa = PBXGroup;
 			children = (
 				755F6C192BA02DD9005B476D /* TMainScreenView.swift */,
-				755F6C372BA2C78F005B476D /* TRulesView.swift */,
 				7509C1082BAB0A1100E6A573 /* TProfileSettingsView.swift */,
+				755F6C372BA2C78F005B476D /* TRulesView.swift */,
 			);
 			path = TeacherView;
+			sourceTree = "<group>";
+		};
+		757A8D012BB4765500E3DF74 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				757A8CFF2BB4765500E3DF74 /* CustomButton.swift */,
+				757A8D002BB4765500E3DF74 /* CustomHeaderTitle.swift */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		75B38DF22B0B534A000CF6EF = {
@@ -113,6 +126,7 @@
 		75B38DFD2B0B534A000CF6EF /* JuniorMathFac */ = {
 			isa = PBXGroup;
 			children = (
+				757A8D012BB4765500E3DF74 /* UIComponents */,
 				755E33912B80BEE500488ECD /* Views */,
 				75B38DFE2B0B534A000CF6EF /* AppDelegate.swift */,
 				75B38E002B0B534A000CF6EF /* SceneDelegate.swift */,
@@ -242,8 +256,10 @@
 				75B38E032B0B534A000CF6EF /* ViewController.swift in Sources */,
 				7509C1092BAB0A1100E6A573 /* TProfileSettingsView.swift in Sources */,
 				75B38DFF2B0B534A000CF6EF /* AppDelegate.swift in Sources */,
+				757A8D022BB4765500E3DF74 /* CustomButton.swift in Sources */,
 				755F6C382BA2C78F005B476D /* TRulesView.swift in Sources */,
 				75B38E012B0B534A000CF6EF /* SceneDelegate.swift in Sources */,
+				757A8D032BB4765500E3DF74 /* CustomHeaderTitle.swift in Sources */,
 				755E33932B80BFA700488ECD /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +410,7 @@
 				INFOPLIST_FILE = JuniorMathFac/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -423,6 +440,7 @@
 				INFOPLIST_FILE = JuniorMathFac/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

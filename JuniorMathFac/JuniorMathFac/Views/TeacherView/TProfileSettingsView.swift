@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 final class TProfileSettingsView: UIView {
+    private let profileHeader = CustomHeaderTitle(title: "Настройки")
+    
     private let backGroundImage: UIImageView = {
         let iv = UIImageView()
         iv.clipsToBounds = true
@@ -95,23 +97,13 @@ final class TProfileSettingsView: UIView {
         return textField
     }()
     
-    private let resetPasswordButton: UIButton = {
-        var configuration = UIButton.Configuration.filled()
-        configuration.buttonSize = .large
-        configuration.baseBackgroundColor = .button
-        configuration.baseForegroundColor = .buttonText
-        var container = AttributeContainer()
-        container.font = UIFont.boldSystemFont(ofSize: 20)
-        configuration.attributedTitle = AttributedString("Сменить пароль", attributes: container)
-        let button = UIButton(configuration: configuration, primaryAction: nil)
-        configuration.titleAlignment = .center
-        return button
-    }()
+    private let resetPasswordButton = CustomButton(title: "Сменить пароль")
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(backGroundImage)
         
+        addSubview(backGroundImage)
+        backGroundImage.addSubview(profileHeader)
         addSubview(changePassContainerView)
         addSubview(accDataContainerView)
         
@@ -130,6 +122,10 @@ final class TProfileSettingsView: UIView {
     }
     
     private func addConstraints() {
+        profileHeader.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(10)
+        }
         backGroundImage.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.left.equalToSuperview()
