@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class TProfileSettingsView: UIView {
+final class TProfileSettingsViewController: UIViewController {
     private let profileHeader = CustomHeaderTitle(title: "Настройки")
     
     private let backGroundImage: UIImageView = {
@@ -99,15 +99,14 @@ final class TProfileSettingsView: UIView {
     
     private let resetPasswordButton = CustomButton(title: "Сменить пароль")
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        addSubview(backGroundImage)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addSubview(backGroundImage)
         backGroundImage.addSubview(profileHeader)
-        addSubview(changePassContainerView)
-        addSubview(accDataContainerView)
+        view.addSubview(changePassContainerView)
+        view.addSubview(accDataContainerView)
         
-        backgroundColor = .systemBackground
+        view.backgroundColor = .systemBackground
         
         accDataContainerView.addSubview(accountDataTitle)
         accDataContainerView.addSubview(fullUserName)
@@ -117,20 +116,20 @@ final class TProfileSettingsView: UIView {
         changePassContainerView.addSubview(newPasswordField)
         changePassContainerView.addSubview(repeatPasswordField)
         
-        addSubview(resetPasswordButton)
+        view.addSubview(resetPasswordButton)
         addConstraints()
     }
     
     private func addConstraints() {
         profileHeader.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(10)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
         }
         backGroundImage.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.left.equalToSuperview()
             make.right.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.35)
+            make.height.equalToSuperview().multipliedBy(0.40)
         }
         
         accountDataTitle.snp.makeConstraints { make in
@@ -182,9 +181,5 @@ final class TProfileSettingsView: UIView {
             make.top.equalTo(changePassContainerView.snp.bottom).offset(20)
             make.width.equalToSuperview().offset(-23)
         }
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

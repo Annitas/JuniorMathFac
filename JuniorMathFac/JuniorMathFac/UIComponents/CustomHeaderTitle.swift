@@ -20,7 +20,7 @@ class CustomHeaderTitle: UIView {
         layer.cornerRadius = 10
         self.snp.makeConstraints { make in
             make.width.equalTo(label.intrinsicContentSize.width + 100) // Добавляем отступы
-            make.height.equalTo(label.intrinsicContentSize.height + 30) // Добавляем отступы
+            make.height.equalTo(label.intrinsicContentSize.height + 25) // Добавляем отступы
         }
         label.snp.makeConstraints { make in
             make.center.equalToSuperview()

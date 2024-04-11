@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class TMainScreenView: UIView {
+final class TMainScreenViewController: UIViewController {
     private let profileHeader = CustomHeaderTitle(title: "Профиль")
     
     private let backGroundImage: UIImageView = {
@@ -49,24 +49,46 @@ final class TMainScreenView: UIView {
     private let tasksButton = CustomButton(title: "Задачи")
     private let rulesButton = CustomButton(title: "Правила")
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .systemBackground
-        addSubview(backGroundImage)
-        addSubview(backGroundCardImageView)
+//
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        view.addSubview(backGroundImage)
+        view.addSubview(backGroundCardImageView)
         backGroundCardImageView.addSubview(avatarImageView)
         backGroundCardImageView.addSubview(nameLabel)
         backGroundImage.addSubview(profileHeader)
-        addSubview(makeRoomButton)
-        addSubview(statisticsButton)
-        addSubview(tasksButton)
-        addSubview(rulesButton)
+        view.addSubview(makeRoomButton)
+        view.addSubview(statisticsButton)
+        view.addSubview(tasksButton)
+        view.addSubview(rulesButton)
+        makeRoomButton.addTarget(self, action: #selector(openMakeRoom), for: .touchUpInside)
+        statisticsButton.addTarget(self, action: #selector(openStatistics), for: .touchUpInside)
+        tasksButton.addTarget(self, action: #selector(openTasks), for: .touchUpInside)
+        rulesButton.addTarget(self, action: #selector(openRules), for: .touchUpInside)
         addConstraints()
+    }
+    
+    @objc func openMakeRoom() {
+        navigationController?.pushViewController(TRoomViewController(), animated: true)
+    }
+    
+    @objc func openStatistics() {
+        navigationController?.pushViewController(TStatisticsViewController(), animated: true)
+    }
+    
+    @objc func openTasks() {
+        navigationController?.pushViewController(TTasksViewController(), animated: true)
+    }
+    
+    @objc func openRules() {
+        navigationController?.pushViewController(TRulesViewController(), animated: true)
     }
     
     private func addConstraints() {
         profileHeader.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(70)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.centerX.equalToSuperview()
         }
         
@@ -81,7 +103,7 @@ final class TMainScreenView: UIView {
             make.top.equalToSuperview()
             make.left.equalToSuperview()
             make.right.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.35) 
+            make.height.equalToSuperview().multipliedBy(0.40) 
         }
         
         avatarImageView.snp.makeConstraints { make in
@@ -117,9 +139,5 @@ final class TMainScreenView: UIView {
             make.top.equalTo(tasksButton.snp.bottom).offset(20)
             make.width.equalToSuperview().multipliedBy(0.9)
         }
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
 }

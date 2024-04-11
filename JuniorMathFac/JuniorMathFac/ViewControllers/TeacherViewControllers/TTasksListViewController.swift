@@ -1,5 +1,5 @@
 //
-//  TStatistics.swift
+//  TTasksList.swift
 //  JuniorMathFac
 //
 //  Created by Anita Stashevskaya on 02.04.2024.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class TStatisticsViewController: UIViewController {
+final class TTasksListViewController: UIViewController {
     private let backGroundImage: UIImageView = {
         let iv = UIImageView()
         iv.clipsToBounds = true
@@ -16,13 +16,15 @@ final class TStatisticsViewController: UIViewController {
         return iv
     }()
     
-    private let tasksListLabel = CustomHeaderTitle(title: "Статистика")
+    private let tasksListLabel = CustomHeaderTitle(title: "Список задач")
+    private let addTasksButton = CustomButton(title: "Добавить задачи")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubview(backGroundImage)
         view.addSubview(tasksListLabel)
+        view.addSubview(addTasksButton)
         addConstraints()
     }
     
@@ -31,12 +33,18 @@ final class TStatisticsViewController: UIViewController {
             make.top.equalToSuperview()
             make.right.equalToSuperview()
             make.left.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.35)
+            make.height.equalToSuperview().multipliedBy(0.40)
         }
         
         tasksListLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
+        }
+        
+        addTasksButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.width.equalToSuperview().multipliedBy(0.9)
         }
     }
 }

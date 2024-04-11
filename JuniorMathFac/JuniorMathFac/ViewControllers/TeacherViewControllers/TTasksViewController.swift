@@ -17,7 +17,7 @@ final class TTasksViewController: UIViewController {
         return iv
     }()
     
-    private let tasksListLabel = CustomHeaderTitle(title: "Задачи")
+    private let tasksListTitle = CustomHeaderTitle(title: "Задачи")
     
     private let searchTextField: UITextField = {
         let textField = UITextField()
@@ -38,7 +38,7 @@ final class TTasksViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubview(backGroundImage)
-        view.addSubview(tasksListLabel)
+        view.addSubview(tasksListTitle)
         view.addSubview(searchTextField)
         addConstraints()
     }
@@ -48,16 +48,16 @@ final class TTasksViewController: UIViewController {
             make.top.equalToSuperview()
             make.right.equalToSuperview()
             make.left.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.35)
+            make.height.equalToSuperview().multipliedBy(0.40)
         }
         
-        tasksListLabel.snp.makeConstraints { make in
+        tasksListTitle.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(8)
         }
         
         searchTextField.snp.makeConstraints { make in
-            make.top.equalTo(tasksListLabel.snp.bottom).offset(10)
+            make.top.equalTo(tasksListTitle.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.8)
         }

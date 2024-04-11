@@ -20,21 +20,21 @@ final class TRoomViewController: UIViewController {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 10
-        view.layer.opacity = 0.4
+        view.layer.opacity = 0.75
         return view
     }()
     
-    private let roomLabel = CustomHeaderTitle(title: "Комната")
+    private let roomLabelHeader = CustomHeaderTitle(title: "Комната")
     
     private let examTitle: UILabel = {
         let label = UILabel()
-        label.text = "Exam number 1"
+        label.text = "Проверочная работа № 1"
         return label
     }()
     
     private let classTitle: UILabel = {
         let label = UILabel()
-        label.text = "Class 4"
+        label.text = "4 Класс"
         return label
     }()
     
@@ -44,14 +44,14 @@ final class TRoomViewController: UIViewController {
         return label
     }()
     
-    private let tasksButton = CustomButton(title: "Tasks")
-    private let studentsButton = CustomButton(title: "Students")
+    private let tasksButton = CustomButton(title: "Задачи")
+    private let studentsButton = CustomButton(title: "Студенты")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubview(backGroundImage)
-        view.addSubview(roomLabel)
+        view.addSubview(roomLabelHeader)
         view.addSubview(backGroundCardView)
         backGroundCardView.addSubview(examTitle)
         backGroundCardView.addSubview(classTitle)
@@ -66,16 +66,16 @@ final class TRoomViewController: UIViewController {
             make.top.equalToSuperview()
             make.right.equalToSuperview()
             make.left.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.35)
+            make.height.equalToSuperview().multipliedBy(0.40)
         }
         
-        roomLabel.snp.makeConstraints { make in
+        roomLabelHeader.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
         }
         
         backGroundCardView.snp.makeConstraints { make in
-            make.top.equalTo(roomLabel.snp.bottom).offset(10)
+            make.top.equalTo(roomLabelHeader.snp.bottom).offset(10)
             make.height.equalTo(view.intrinsicContentSize.height + 75)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().offset(-23)

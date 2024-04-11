@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class TRoomCreationView: UIViewController {
+final class TRoomCreationViewController: UIViewController {
     private let backGroundImage: UIImageView = {
         let iv = UIImageView()
         iv.clipsToBounds = true
@@ -16,7 +16,7 @@ final class TRoomCreationView: UIViewController {
         return iv
     }()
     
-    private let createRoomLabel = CustomHeaderTitle(title: "Новая комната")
+    private let createRoomHeader = CustomHeaderTitle(title: "Новая комната")
     
     private let backGroundCardView: UIView = {
         let view = UIView()
@@ -64,8 +64,8 @@ final class TRoomCreationView: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubview(backGroundImage)
-        backGroundImage.addSubview(createRoomLabel)
-        view.addSubview(createRoomLabel)
+        backGroundImage.addSubview(createRoomHeader)
+        view.addSubview(createRoomHeader)
         view.addSubview(backGroundCardView)
         backGroundCardView.addSubview(roomTitleTextField)
         backGroundCardView.addSubview(studentCountTextField)
@@ -79,12 +79,12 @@ final class TRoomCreationView: UIViewController {
             make.top.equalToSuperview()
             make.right.equalToSuperview()
             make.left.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.35)
+            make.height.equalToSuperview().multipliedBy(0.40)
         }
         
-        createRoomLabel.snp.makeConstraints { make in
+        createRoomHeader.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
+//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
         }
         
         roomTitleTextField.snp.makeConstraints { make in
