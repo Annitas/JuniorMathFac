@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-
+// MARK: Should be in statistics
 final class TRoomViewController: UIViewController {
     private let backGroundImage: UIImageView = {
         let iv = UIImageView()
@@ -49,6 +49,11 @@ final class TRoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tasksButton.addTarget(self, action: #selector(openTasks), for: .touchUpInside)
+        setupView()
+    }
+    
+    private func setupView() {
         view.backgroundColor = .systemBackground
         view.addSubview(backGroundImage)
         view.addSubview(roomLabelHeader)
@@ -56,9 +61,18 @@ final class TRoomViewController: UIViewController {
         backGroundCardView.addSubview(examTitle)
         backGroundCardView.addSubview(classTitle)
         backGroundCardView.addSubview(examDate)
-        backGroundImage.addSubview(tasksButton)
-        backGroundImage.addSubview(studentsButton)
+        view.addSubview(tasksButton)
+        view.addSubview(studentsButton)
+
         addConstraints()
+    }
+    
+    @objc func openTasks() {
+        navigationController?.pushViewController(TTasksListViewController(), animated: true)
+    }
+    
+    @objc func openStudents() {
+        navigationController?.pushViewController(TTasksListViewController(), animated: true)
     }
     
     private func addConstraints() {

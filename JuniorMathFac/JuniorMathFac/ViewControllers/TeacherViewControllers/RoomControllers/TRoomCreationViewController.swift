@@ -62,18 +62,25 @@ final class TRoomCreationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        addConstraints()
+    }
+    private func setupView() {
         view.backgroundColor = .systemBackground
         view.addSubview(backGroundImage)
-        backGroundImage.addSubview(createRoomHeader)
+        view.addSubview(createRoomHeader)
         view.addSubview(createRoomHeader)
         view.addSubview(backGroundCardView)
         backGroundCardView.addSubview(roomTitleTextField)
         backGroundCardView.addSubview(studentCountTextField)
         view.addSubview(addTasksButton)
         view.addSubview(createRoomButton)
-        addConstraints()
+        
+        addTasksButton.configuration?.baseBackgroundColor = .white
+        addTasksButton.layer.borderColor = UIColor.blue.cgColor
+        addTasksButton.layer.cornerRadius = 10
+        addTasksButton.layer.borderWidth = 2
     }
-    
     private func addConstraints() {
         backGroundImage.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -84,7 +91,7 @@ final class TRoomCreationViewController: UIViewController {
         
         createRoomHeader.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
         }
         
         roomTitleTextField.snp.makeConstraints { make in
@@ -94,8 +101,8 @@ final class TRoomCreationViewController: UIViewController {
         }
         
         backGroundCardView.snp.makeConstraints { make in
-            make.centerY.equalToSuperview().offset(-200)
-            make.bottom.equalTo(backGroundImage.snp.bottom).offset(20)
+            make.top.equalTo(createRoomHeader.snp.bottom).offset(10)
+            make.height.equalTo(view.intrinsicContentSize.height + 75)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().offset(-23)
         }

@@ -101,6 +101,11 @@ final class TProfileSettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupView()
+    }
+    
+    private func setupView() {
         view.addSubview(backGroundImage)
         backGroundImage.addSubview(profileHeader)
         view.addSubview(changePassContainerView)

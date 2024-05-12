@@ -49,10 +49,29 @@ final class TMainScreenViewController: UIViewController {
     private let tasksButton = CustomButton(title: "Задачи")
     private let rulesButton = CustomButton(title: "Правила")
     
-//
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        addConstraints()
+    }
+    
+    @objc func openMakeRoom() {
+        navigationController?.pushViewController(TRoomCreationViewController(), animated: true)
+    }
+    
+    @objc func openStatistics() {
+        navigationController?.pushViewController(TStatisticsViewController(), animated: true)
+    }
+    
+    @objc func openTasks() {
+        navigationController?.pushViewController(TTasksViewController(), animated: true)
+    }
+    
+    @objc func openRules() {
+        navigationController?.pushViewController(TRulesViewController(), animated: true)
+    }
+    
+    private func setupView() {
         view.backgroundColor = .systemBackground
         view.addSubview(backGroundImage)
         view.addSubview(backGroundCardImageView)
@@ -67,23 +86,6 @@ final class TMainScreenViewController: UIViewController {
         statisticsButton.addTarget(self, action: #selector(openStatistics), for: .touchUpInside)
         tasksButton.addTarget(self, action: #selector(openTasks), for: .touchUpInside)
         rulesButton.addTarget(self, action: #selector(openRules), for: .touchUpInside)
-        addConstraints()
-    }
-    
-    @objc func openMakeRoom() {
-        navigationController?.pushViewController(TRoomViewController(), animated: true)
-    }
-    
-    @objc func openStatistics() {
-        navigationController?.pushViewController(TStatisticsViewController(), animated: true)
-    }
-    
-    @objc func openTasks() {
-        navigationController?.pushViewController(TTasksViewController(), animated: true)
-    }
-    
-    @objc func openRules() {
-        navigationController?.pushViewController(TRulesViewController(), animated: true)
     }
     
     private func addConstraints() {
