@@ -102,7 +102,7 @@ final class TRoomCreationViewController: UIViewController {
         
         backGroundCardView.snp.makeConstraints { make in
             make.top.equalTo(createRoomHeader.snp.bottom).offset(10)
-            make.height.equalTo(view.intrinsicContentSize.height + 75)
+            make.bottom.equalTo(studentCountTextField.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().offset(-23)
         }
