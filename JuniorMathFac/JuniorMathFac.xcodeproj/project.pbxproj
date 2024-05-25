@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6D44871FF6BBC3211736F76F /* Pods_JuniorMathFac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BDEC73BECA1505F1A42C2AF /* Pods_JuniorMathFac.framework */; };
 		7509C1092BAB0A1100E6A573 /* TProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7509C1082BAB0A1100E6A573 /* TProfileSettingsViewController.swift */; };
-		750EF2072BC625870062C597 /* FakeDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EF2062BC625870062C597 /* FakeDatabase.swift */; };
+		750EF2072BC625870062C597 /* FakeDatabases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EF2062BC625870062C597 /* FakeDatabases.swift */; };
 		750EF20A2BC62C990062C597 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EF2092BC62C990062C597 /* TaskModel.swift */; };
 		750EF20C2BC62CC00062C597 /* TeacherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EF20B2BC62CC00062C597 /* TeacherModel.swift */; };
 		750EF20E2BC62CCB0062C597 /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EF20D2BC62CCB0062C597 /* StudentModel.swift */; };
@@ -24,6 +24,7 @@
 		757A8D032BB4765500E3DF74 /* CustomHeaderTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A8D002BB4765500E3DF74 /* CustomHeaderTitle.swift */; };
 		757CC8442BC8087C001E2F83 /* TRoomCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CC8422BC8087C001E2F83 /* TRoomCreationViewController.swift */; };
 		757CC8452BC8087C001E2F83 /* TRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CC8432BC8087C001E2F83 /* TRoomViewController.swift */; };
+		759339092BF09C1B005A3085 /* TStudentListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759339082BF09C1B005A3085 /* TStudentListController.swift */; };
 		75B38DFF2B0B534A000CF6EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B38DFE2B0B534A000CF6EF /* AppDelegate.swift */; };
 		75B38E012B0B534A000CF6EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B38E002B0B534A000CF6EF /* SceneDelegate.swift */; };
 		75B38E032B0B534A000CF6EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B38E022B0B534A000CF6EF /* ViewController.swift */; };
@@ -31,12 +32,13 @@
 		75C29B9E2BBC55C900B033CC /* TTasksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C29B9D2BBC55C900B033CC /* TTasksListViewController.swift */; };
 		75C29BA02BBC5A8100B033CC /* TStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C29B9F2BBC5A8100B033CC /* TStatisticsViewController.swift */; };
 		75C29BA42BBC646B00B033CC /* TTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C29BA32BBC646B00B033CC /* TTasksViewController.swift */; };
+		75F606AE2C023C3600BA201E /* TStudentListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F606AD2C023C3600BA201E /* TStudentListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0BDEC73BECA1505F1A42C2AF /* Pods_JuniorMathFac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JuniorMathFac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7509C1082BAB0A1100E6A573 /* TProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TProfileSettingsViewController.swift; sourceTree = "<group>"; };
-		750EF2062BC625870062C597 /* FakeDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDatabase.swift; sourceTree = "<group>"; };
+		750EF2062BC625870062C597 /* FakeDatabases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDatabases.swift; sourceTree = "<group>"; };
 		750EF2092BC62C990062C597 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		750EF20B2BC62CC00062C597 /* TeacherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherModel.swift; sourceTree = "<group>"; };
 		750EF20D2BC62CCB0062C597 /* StudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		757A8D002BB4765500E3DF74 /* CustomHeaderTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderTitle.swift; sourceTree = "<group>"; };
 		757CC8422BC8087C001E2F83 /* TRoomCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRoomCreationViewController.swift; sourceTree = "<group>"; };
 		757CC8432BC8087C001E2F83 /* TRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRoomViewController.swift; sourceTree = "<group>"; };
+		759339082BF09C1B005A3085 /* TStudentListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStudentListController.swift; sourceTree = "<group>"; };
 		75B38DFB2B0B534A000CF6EF /* JuniorMathFac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JuniorMathFac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B38DFE2B0B534A000CF6EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75B38E002B0B534A000CF6EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		75C29B9D2BBC55C900B033CC /* TTasksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTasksListViewController.swift; sourceTree = "<group>"; };
 		75C29B9F2BBC5A8100B033CC /* TStatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStatisticsViewController.swift; sourceTree = "<group>"; };
 		75C29BA32BBC646B00B033CC /* TTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTasksViewController.swift; sourceTree = "<group>"; };
+		75F606AD2C023C3600BA201E /* TStudentListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStudentListTableViewCell.swift; sourceTree = "<group>"; };
 		B953FC961EC183AA4A3B230E /* Pods-JuniorMathFac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JuniorMathFac.debug.xcconfig"; path = "Target Support Files/Pods-JuniorMathFac/Pods-JuniorMathFac.debug.xcconfig"; sourceTree = "<group>"; };
 		D35CE2AC5C34096531F476B6 /* Pods-JuniorMathFac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JuniorMathFac.release.xcconfig"; path = "Target Support Files/Pods-JuniorMathFac/Pods-JuniorMathFac.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +100,7 @@
 		750EF2052BC625710062C597 /* Fake */ = {
 			isa = PBXGroup;
 			children = (
-				750EF2062BC625870062C597 /* FakeDatabase.swift */,
+				750EF2062BC625870062C597 /* FakeDatabases.swift */,
 			);
 			path = Fake;
 			sourceTree = "<group>";
@@ -130,7 +134,7 @@
 				755F6C192BA02DD9005B476D /* TMainScreenViewController.swift */,
 				7509C1082BAB0A1100E6A573 /* TProfileSettingsViewController.swift */,
 				75C29B9D2BBC55C900B033CC /* TTasksListViewController.swift */,
-				75C29B9F2BBC5A8100B033CC /* TStatisticsViewController.swift */,
+				759339072BF08F30005A3085 /* StatisticsControllers */,
 				75C29BA32BBC646B00B033CC /* TTasksViewController.swift */,
 				755F6C372BA2C78F005B476D /* TRulesViewController.swift */,
 			);
@@ -149,10 +153,20 @@
 		757C3A5F2BC80B8100E1CCA3 /* RoomControllers */ = {
 			isa = PBXGroup;
 			children = (
-				757CC8432BC8087C001E2F83 /* TRoomViewController.swift */,
 				757CC8422BC8087C001E2F83 /* TRoomCreationViewController.swift */,
+				759339082BF09C1B005A3085 /* TStudentListController.swift */,
+				75F606AD2C023C3600BA201E /* TStudentListTableViewCell.swift */,
 			);
 			path = RoomControllers;
+			sourceTree = "<group>";
+		};
+		759339072BF08F30005A3085 /* StatisticsControllers */ = {
+			isa = PBXGroup;
+			children = (
+				75C29B9F2BBC5A8100B033CC /* TStatisticsViewController.swift */,
+				757CC8432BC8087C001E2F83 /* TRoomViewController.swift */,
+			);
+			path = StatisticsControllers;
 			sourceTree = "<group>";
 		};
 		75B38DF22B0B534A000CF6EF = {
@@ -316,7 +330,9 @@
 				75C29BA02BBC5A8100B033CC /* TStatisticsViewController.swift in Sources */,
 				750EF20C2BC62CC00062C597 /* TeacherModel.swift in Sources */,
 				75C29BA42BBC646B00B033CC /* TTasksViewController.swift in Sources */,
-				750EF2072BC625870062C597 /* FakeDatabase.swift in Sources */,
+				759339092BF09C1B005A3085 /* TStudentListController.swift in Sources */,
+				750EF2072BC625870062C597 /* FakeDatabases.swift in Sources */,
+				75F606AE2C023C3600BA201E /* TStudentListTableViewCell.swift in Sources */,
 				75B38E012B0B534A000CF6EF /* SceneDelegate.swift in Sources */,
 				757A8D032BB4765500E3DF74 /* CustomHeaderTitle.swift in Sources */,
 				750EF2142BC632960062C597 /* Users_RoomModel.swift in Sources */,

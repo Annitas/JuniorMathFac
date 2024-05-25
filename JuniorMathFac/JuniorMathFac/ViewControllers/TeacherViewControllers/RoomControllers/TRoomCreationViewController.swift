@@ -55,7 +55,15 @@ final class TRoomCreationViewController: UIViewController {
         return textField
     }()
     
+    private let studentCountLabel: UILabel = {
+        let label = UILabel()
+        label.text = "учеников"
+        label.textColor = .white
+        return label
+    }()
+    
     private let addTasksButton = CustomButton(title: "Добавить задачи")
+    private let addStudentsButton = CustomButton(title: "Добавить учеников")
     private let createRoomButton = CustomButton(title: "Создать комнату")
     
     let options = ["Third Class", "Fourth Class", "Fifth Class", "Sixth Class"]
@@ -66,6 +74,8 @@ final class TRoomCreationViewController: UIViewController {
         addConstraints()
     }
     private func setupView() {
+        addTasksButton.addTarget(self, action: #selector(openStudentList), for: .touchUpInside)
+        
         view.backgroundColor = .systemBackground
         view.addSubview(backGroundImage)
         view.addSubview(createRoomHeader)
@@ -73,14 +83,26 @@ final class TRoomCreationViewController: UIViewController {
         view.addSubview(backGroundCardView)
         backGroundCardView.addSubview(roomTitleTextField)
         backGroundCardView.addSubview(studentCountTextField)
+        backGroundCardView.addSubview(studentCountLabel)
         view.addSubview(addTasksButton)
+        view.addSubview(addStudentsButton)
         view.addSubview(createRoomButton)
+        
+        addStudentsButton.configuration?.baseBackgroundColor = .white
+        addStudentsButton.layer.borderColor = UIColor.blue.cgColor
+        addStudentsButton.layer.cornerRadius = 10
+        addStudentsButton.layer.borderWidth = 2
         
         addTasksButton.configuration?.baseBackgroundColor = .white
         addTasksButton.layer.borderColor = UIColor.blue.cgColor
         addTasksButton.layer.cornerRadius = 10
         addTasksButton.layer.borderWidth = 2
     }
+    
+    @objc func openStudentList() {
+        navigationController?.pushViewController(TStudentListController(), animated: true)
+    }
+    
     private func addConstraints() {
         backGroundImage.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -111,17 +133,24 @@ final class TRoomCreationViewController: UIViewController {
             make.width.equalTo(100)
             make.right.equalTo(roomTitleTextField.snp.right)
         }
-        createRoomButton.snp.makeConstraints { make in
+        studentCountLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(studentCountTextField.snp.centerY)
+            make.right.equalTo(studentCountTextField.snp.left).offset(-10)
+        }
+        addStudentsButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.bottom.equalTo(addTasksButton.snp.top).offset(-20)
             make.width.equalToSuperview().multipliedBy(0.9)
         }
-        
         addTasksButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalTo(createRoomButton.snp.top).offset(-20)
             make.width.equalToSuperview().multipliedBy(0.9)
         }
-        
+        createRoomButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.width.equalToSuperview().multipliedBy(0.9)
+        }
     }
 }
