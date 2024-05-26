@@ -75,6 +75,7 @@ final class TRoomCreationViewController: UIViewController {
     }
     private func setupView() {
         addStudentsButton.addTarget(self, action: #selector(openStudentList), for: .touchUpInside)
+        addTasksButton.addTarget(self, action: #selector(openTasksList), for: .touchUpInside)
         
         view.backgroundColor = .systemBackground
         view.addSubview(backGroundImage)
@@ -100,7 +101,10 @@ final class TRoomCreationViewController: UIViewController {
     }
     
     @objc func openStudentList() {
-        navigationController?.pushViewController(TStudentListController(), animated: true)
+        navigationController?.pushViewController(TAddStudentListController(), animated: true)
+    }
+    @objc func openTasksList() {
+        navigationController?.pushViewController(TAddTaskListController(), animated: true)
     }
     
     private func addConstraints() {

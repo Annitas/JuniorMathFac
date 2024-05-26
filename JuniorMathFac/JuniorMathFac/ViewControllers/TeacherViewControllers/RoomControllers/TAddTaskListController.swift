@@ -1,14 +1,13 @@
 //
-//  TStudentListController.swift
+//  TAddTasksListController.swift
 //  JuniorMathFac
 //
-//  Created by Anita Stashevskaya on 12.05.2024.
+//  Created by Anita Stashevskaya on 26.05.2024.
 //
 
 import UIKit
-import SnapKit
 
-final class TStudentListController: UIViewController {
+final class TAddTaskListController: UIViewController {
     let tableView: UITableView = .init()
     
     
@@ -42,11 +41,11 @@ final class TStudentListController: UIViewController {
     }
 }
 
-extension TStudentListController: UITableViewDelegate {
+extension TAddTaskListController: UITableViewDelegate {
     
 }
 
-extension TStudentListController: UITableViewDataSource {
+extension TAddTaskListController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.count
     }

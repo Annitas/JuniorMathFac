@@ -68,11 +68,11 @@ final class TRoomViewController: UIViewController {
     }
     
     @objc func openTasks() {
-        navigationController?.pushViewController(TTasksListViewController(), animated: true)
+        navigationController?.pushViewController(TTasksViewController(), animated: true)
     }
     
     @objc func openStudents() {
-        navigationController?.pushViewController(TTasksListViewController(), animated: true)
+        navigationController?.pushViewController(TTasksViewController(), animated: true)
     }
     
     private func addConstraints() {
