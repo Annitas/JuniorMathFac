@@ -74,7 +74,7 @@ final class TRoomCreationViewController: UIViewController {
         addConstraints()
     }
     private func setupView() {
-        addTasksButton.addTarget(self, action: #selector(openStudentList), for: .touchUpInside)
+        addStudentsButton.addTarget(self, action: #selector(openStudentList), for: .touchUpInside)
         
         view.backgroundColor = .systemBackground
         view.addSubview(backGroundImage)

@@ -11,12 +11,20 @@ import SnapKit
 final class TStudentListController: UIViewController {
     let tableView: UITableView = .init()
     
+    
+    var viewModel: [StudentModel] = RoomCreationViewModel.getStudentsFromDataBase() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
     
     private func setupView() {
+        print(viewModel)
         view.addSubview(tableView)
         tableView.backgroundColor = UIColor.lightGray
         tableView.dataSource = self
@@ -38,11 +46,12 @@ extension TStudentListController: UITableViewDelegate {
 
 extension TStudentListController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
+        viewModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TStudentListTableViewCell.self), for: indexPath) as! TStudentListTableViewCell
+        cell.viewModel = viewModel[indexPath.row]
         return cell
     }
     

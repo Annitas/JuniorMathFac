@@ -6,11 +6,11 @@
 //
 
 struct StudentModel: Codable {
-    let id: Int
+    var id: Int = 0
     let lastName: String
     let firstName: String
-    let patronymic: String
-    let login: String
+    var patronymic: String = ""
+    var login: String = ""
     let hashedPassword: String
-    let isAdmin: Bool
+    var isAdmin: Bool = false
 }
