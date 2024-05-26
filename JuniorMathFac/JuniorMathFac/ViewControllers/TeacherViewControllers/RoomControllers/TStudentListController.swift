@@ -24,12 +24,14 @@ final class TStudentListController: UIViewController {
     }
     
     private func setupView() {
-        print(viewModel)
         view.addSubview(tableView)
-        tableView.backgroundColor = UIColor.lightGray
+        tableView.backgroundColor = UIColor.white
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(TStudentListTableViewCell.self, forCellReuseIdentifier: String(describing: TStudentListTableViewCell.self))
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.estimatedRowHeight = 50
+        tableView.register(TStudentListTableViewCell.self,
+                           forCellReuseIdentifier: String(describing: TStudentListTableViewCell.self))
         
         tableView.snp.makeConstraints { make in
             make.top.equalToSuperview()

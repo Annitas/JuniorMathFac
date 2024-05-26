@@ -14,6 +14,20 @@ public final class TStudentListTableViewCell: UITableViewCell {
         }
     }
     
+    let externalView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    let innerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.layer.cornerRadius = 10
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.darkGray.cgColor
+        return view
+    }()
+    
     let nameLabel: UILabel = {
         let label = UILabel()
         return label
@@ -21,7 +35,9 @@ public final class TStudentListTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(nameLabel)
+        contentView.addSubview(externalView)
+        externalView.addSubview(innerView)
+        innerView.addSubview(nameLabel)
         setupView()
     }
     
@@ -30,10 +46,26 @@ public final class TStudentListTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
+        externalView.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.top.equalToSuperview()
+            make.right.equalToSuperview()
+            make.left.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        
+        innerView.snp.makeConstraints { make in
+            make.height.equalTo(45)
+            make.top.equalToSuperview().offset(5)
+            make.right.equalToSuperview()
+            make.left.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        
         nameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.left.equalToSuperview()
+            make.left.equalToSuperview().offset(10)
             make.right.equalToSuperview()
         }
     }
