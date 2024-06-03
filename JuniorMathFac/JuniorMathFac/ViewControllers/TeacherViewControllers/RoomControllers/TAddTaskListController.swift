@@ -11,7 +11,7 @@ final class TAddTaskListController: UIViewController {
     let tableView: UITableView = .init()
     
     
-    var viewModel: [StudentModel] = RoomCreationViewModel.getStudentsFromDataBase() {
+    var viewModel: [TaskModel] = RoomCreationViewModel.getTasksFromDataBase() {
         didSet {
             tableView.reloadData()
         }
@@ -29,8 +29,8 @@ final class TAddTaskListController: UIViewController {
         tableView.delegate = self
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.estimatedRowHeight = 50
-        tableView.register(TStudentListTableViewCell.self,
-                           forCellReuseIdentifier: String(describing: TStudentListTableViewCell.self))
+        tableView.register(TTasksTableViewCell.self,
+                           forCellReuseIdentifier: String(describing: TTasksTableViewCell.self))
         
         tableView.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -51,7 +51,7 @@ extension TAddTaskListController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TStudentListTableViewCell.self), for: indexPath) as! TStudentListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TTasksTableViewCell.self), for: indexPath) as! TTasksTableViewCell
         cell.viewModel = viewModel[indexPath.row]
         return cell
     }

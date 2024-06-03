@@ -12,4 +12,9 @@ final class RoomCreationViewModel {
         let students = FakeDatabase()
         return students.childrenArray
     }
+    
+    static func getTasksFromDataBase() -> [TaskModel] {
+        let tasks = FakeDatabase()
+        return tasks.tasksArray
+    }
 }

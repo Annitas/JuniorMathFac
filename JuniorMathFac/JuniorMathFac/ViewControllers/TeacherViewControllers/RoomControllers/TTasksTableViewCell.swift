@@ -1,16 +1,16 @@
 //
-//  TStudentListTableViewCell.swift
+//  TTasksTableViewCell.swift
 //  JuniorMathFac
 //
-//  Created by Anita Stashevskaya on 25.05.2024.
+//  Created by Anita Stashevskaya on 03.06.2024.
 //
 
 import UIKit
 
-final class TStudentListTableViewCell: UITableViewCell {
-    var viewModel: StudentModel = StudentModel(lastName: "", firstName: "", hashedPassword: "") {
+final class TTasksTableViewCell: UITableViewCell {
+    var viewModel: TaskModel = TaskModel(condition: "", answer: "") {
         didSet {
-            nameLabel.text = "\(viewModel.firstName) \(viewModel.lastName)"
+            conditionLabel.text = viewModel.condition
         }
     }
     
@@ -28,7 +28,7 @@ final class TStudentListTableViewCell: UITableViewCell {
         return view
     }()
     
-    let nameLabel: UILabel = {
+    let conditionLabel: UILabel = {
         let label = UILabel()
         return label
     }()
@@ -37,7 +37,7 @@ final class TStudentListTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(externalView)
         externalView.addSubview(innerView)
-        innerView.addSubview(nameLabel)
+        innerView.addSubview(conditionLabel)
         setupView()
     }
     
@@ -62,7 +62,7 @@ final class TStudentListTableViewCell: UITableViewCell {
             make.bottom.equalToSuperview()
         }
         
-        nameLabel.snp.makeConstraints { make in
+        conditionLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
             make.left.equalToSuperview().offset(10)

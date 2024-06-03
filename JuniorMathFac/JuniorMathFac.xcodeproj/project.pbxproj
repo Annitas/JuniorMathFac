@@ -20,6 +20,7 @@
 		755F6C1A2BA02DD9005B476D /* TMainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F6C192BA02DD9005B476D /* TMainScreenViewController.swift */; };
 		755F6C1C2BA036D2005B476D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 755F6C1B2BA036D2005B476D /* Assets.xcassets */; };
 		755F6C382BA2C78F005B476D /* TRulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F6C372BA2C78F005B476D /* TRulesViewController.swift */; };
+		757A05C72C0E20A700833503 /* TTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A05C62C0E20A700833503 /* TTasksTableViewCell.swift */; };
 		757A8D022BB4765500E3DF74 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A8CFF2BB4765500E3DF74 /* CustomButton.swift */; };
 		757A8D032BB4765500E3DF74 /* CustomHeaderTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A8D002BB4765500E3DF74 /* CustomHeaderTitle.swift */; };
 		757CC8442BC8087C001E2F83 /* TRoomCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CC8422BC8087C001E2F83 /* TRoomCreationViewController.swift */; };
@@ -51,6 +52,7 @@
 		755F6C192BA02DD9005B476D /* TMainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMainScreenViewController.swift; sourceTree = "<group>"; };
 		755F6C1B2BA036D2005B476D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		755F6C372BA2C78F005B476D /* TRulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRulesViewController.swift; sourceTree = "<group>"; };
+		757A05C62C0E20A700833503 /* TTasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTasksTableViewCell.swift; sourceTree = "<group>"; };
 		757A8CFF2BB4765500E3DF74 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		757A8D002BB4765500E3DF74 /* CustomHeaderTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderTitle.swift; sourceTree = "<group>"; };
 		757CC8422BC8087C001E2F83 /* TRoomCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRoomCreationViewController.swift; sourceTree = "<group>"; };
@@ -158,9 +160,10 @@
 			isa = PBXGroup;
 			children = (
 				757CC8422BC8087C001E2F83 /* TRoomCreationViewController.swift */,
-				75F606AD2C023C3600BA201E /* TStudentListTableViewCell.swift */,
 				759339082BF09C1B005A3085 /* TAddStudentListController.swift */,
+				75F606AD2C023C3600BA201E /* TStudentListTableViewCell.swift */,
 				75F606B22C0368B000BA201E /* TAddTaskListController.swift */,
+				757A05C62C0E20A700833503 /* TTasksTableViewCell.swift */,
 			);
 			path = RoomControllers;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				75F606B32C0368B000BA201E /* TAddTaskListController.swift in Sources */,
 				755F6C382BA2C78F005B476D /* TRulesViewController.swift in Sources */,
 				75C29BA02BBC5A8100B033CC /* TStatisticsViewController.swift in Sources */,
+				757A05C72C0E20A700833503 /* TTasksTableViewCell.swift in Sources */,
 				750EF20C2BC62CC00062C597 /* TeacherModel.swift in Sources */,
 				75C29BA42BBC646B00B033CC /* TTasksViewController.swift in Sources */,
 				75F606B12C0324AB00BA201E /* RoomCreationViewModel.swift in Sources */,
