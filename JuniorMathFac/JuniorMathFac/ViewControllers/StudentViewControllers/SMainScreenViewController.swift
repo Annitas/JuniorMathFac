@@ -34,7 +34,7 @@ final class SMainScreenViewController: UIViewController {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Маргарита \n Джинджолия"
+        label.text = "Андрей \n Разумовский"
         label.numberOfLines = 2
         label.textColor = .white
         label.shadowColor = .gray

@@ -44,7 +44,7 @@ final class FakeDatabase {
                                                       login: "Alistar",
                                                       hashedPassword: "wddwd", isAdmin: false)]
 
-    let tasksArray: [TaskModel] = [TaskModel(condition: "How many legs does the cat have", answer: "4"),
+    let tasksArray: [TaskModel] = [TaskModel(condition: "Вычислите, впишите ответ. Если его можно выразить в виде десятичной дроби, то знаки разделяйте точкой, например: 5.4 Если нельзя, то в виде неправильной дроби", answer: "4"),
                                    TaskModel(condition: "How many ears does the rabbit have", answer: "2"),
                                    TaskModel(condition: "How old is ten years old child", answer: "10"),
                                    TaskModel(condition: "Name of the bunny", answer: "Kenny"),
