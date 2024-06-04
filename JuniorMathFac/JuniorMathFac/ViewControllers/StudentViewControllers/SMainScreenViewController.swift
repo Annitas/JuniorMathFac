@@ -27,8 +27,8 @@ final class SMainScreenViewController: UIViewController {
     private let avatarImageView: UIImageView = {
         let iv = UIImageView()
         iv.clipsToBounds = true
-        iv.image = UIImage(named: "catAvatar")
-        iv.layer.cornerRadius = 50
+        iv.image = UIImage(named: "foxAvatar")
+        iv.layer.cornerRadius = 30
         return iv
     }()
     
@@ -53,8 +53,8 @@ final class SMainScreenViewController: UIViewController {
         addConstraints()
     }
     
-    @objc func openMakeRoom() {
-        navigationController?.pushViewController(TRoomCreationViewController(), animated: true)
+    @objc func openAvailableRoom() {
+        navigationController?.pushViewController(SAvailableRoomsController(), animated: true)
     }
     
     @objc func openStatistics() {
@@ -79,7 +79,7 @@ final class SMainScreenViewController: UIViewController {
         view.addSubview(availableRoomButton)
         view.addSubview(statisticsButton)
         view.addSubview(rulesButton)
-        availableRoomButton.addTarget(self, action: #selector(openMakeRoom), for: .touchUpInside)
+        availableRoomButton.addTarget(self, action: #selector(openAvailableRoom), for: .touchUpInside)
         statisticsButton.addTarget(self, action: #selector(openStatistics), for: .touchUpInside)
         rulesButton.addTarget(self, action: #selector(openRules), for: .touchUpInside)
     }

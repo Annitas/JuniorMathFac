@@ -7,12 +7,7 @@
 import Foundation
 
 struct RoomModel: Codable {
-    let id: Int
-    let code: Int
-    let name: String
-    let class_number: Int
-    let profile_room: Int
-    let room_task: Int
-    let created_at: Date
-    let started_at: Date
+    let roomTitle: String
+    let tasks: [TaskModel]
+    let students: [StudentModel]
 }

@@ -17,4 +17,9 @@ final class RoomCreationViewModel {
         let tasks = FakeDatabase()
         return tasks.tasksArray
     }
+    
+    static func getAvailableRoomsFromDataBase() -> [RoomModel] {
+        let rooms = FakeDatabase()
+        return [RoomModel(roomTitle: "First", tasks: rooms.tasksArray, students: rooms.childrenArray)]
+    }
 }

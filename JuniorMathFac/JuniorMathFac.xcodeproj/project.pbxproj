@@ -22,6 +22,8 @@
 		755F6C382BA2C78F005B476D /* TRulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F6C372BA2C78F005B476D /* TRulesViewController.swift */; };
 		757A05C72C0E20A700833503 /* TTasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A05C62C0E20A700833503 /* TTasksTableViewCell.swift */; };
 		757A05CA2C0E29DA00833503 /* SMainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A05C92C0E29DA00833503 /* SMainScreenViewController.swift */; };
+		757A05CC2C0F53D500833503 /* SAvailableRoomsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A05CB2C0F53D500833503 /* SAvailableRoomsController.swift */; };
+		757A05CE2C0F560C00833503 /* SAvailableRoomsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A05CD2C0F560C00833503 /* SAvailableRoomsTableViewCell.swift */; };
 		757A8D022BB4765500E3DF74 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A8CFF2BB4765500E3DF74 /* CustomButton.swift */; };
 		757A8D032BB4765500E3DF74 /* CustomHeaderTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A8D002BB4765500E3DF74 /* CustomHeaderTitle.swift */; };
 		757CC8442BC8087C001E2F83 /* TRoomCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CC8422BC8087C001E2F83 /* TRoomCreationViewController.swift */; };
@@ -55,6 +57,8 @@
 		755F6C372BA2C78F005B476D /* TRulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRulesViewController.swift; sourceTree = "<group>"; };
 		757A05C62C0E20A700833503 /* TTasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTasksTableViewCell.swift; sourceTree = "<group>"; };
 		757A05C92C0E29DA00833503 /* SMainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMainScreenViewController.swift; sourceTree = "<group>"; };
+		757A05CB2C0F53D500833503 /* SAvailableRoomsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAvailableRoomsController.swift; sourceTree = "<group>"; };
+		757A05CD2C0F560C00833503 /* SAvailableRoomsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAvailableRoomsTableViewCell.swift; sourceTree = "<group>"; };
 		757A8CFF2BB4765500E3DF74 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		757A8D002BB4765500E3DF74 /* CustomHeaderTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderTitle.swift; sourceTree = "<group>"; };
 		757CC8422BC8087C001E2F83 /* TRoomCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRoomCreationViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				757A05C92C0E29DA00833503 /* SMainScreenViewController.swift */,
+				757A05CB2C0F53D500833503 /* SAvailableRoomsController.swift */,
+				757A05CD2C0F560C00833503 /* SAvailableRoomsTableViewCell.swift */,
 			);
 			path = StudentViewControllers;
 			sourceTree = "<group>";
@@ -348,10 +354,12 @@
 			files = (
 				755F6C1A2BA02DD9005B476D /* TMainScreenViewController.swift in Sources */,
 				750EF20E2BC62CCB0062C597 /* StudentModel.swift in Sources */,
+				757A05CC2C0F53D500833503 /* SAvailableRoomsController.swift in Sources */,
 				75B38E032B0B534A000CF6EF /* ViewController.swift in Sources */,
 				7509C1092BAB0A1100E6A573 /* TProfileSettingsViewController.swift in Sources */,
 				75C29B9E2BBC55C900B033CC /* TTasksListViewController.swift in Sources */,
 				757A05CA2C0E29DA00833503 /* SMainScreenViewController.swift in Sources */,
+				757A05CE2C0F560C00833503 /* SAvailableRoomsTableViewCell.swift in Sources */,
 				75B38DFF2B0B534A000CF6EF /* AppDelegate.swift in Sources */,
 				750EF2122BC6320D0062C597 /* SubjectModel.swift in Sources */,
 				757A8D022BB4765500E3DF74 /* CustomButton.swift in Sources */,
