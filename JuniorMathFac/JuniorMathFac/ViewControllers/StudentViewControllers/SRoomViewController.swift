@@ -80,6 +80,7 @@ final class SRoomViewController: UIViewController {
             taskConditionLabel.text = currentTask.condition
         } else {
             taskConditionLabel.text = "Игра кончилась"
+            answerTextField.isHidden = true
             print(answerArray)
         }
     }
@@ -87,6 +88,7 @@ final class SRoomViewController: UIViewController {
     @objc func answerTheQuestion() {
         guard currentTaskIndex < viewModel.tasks.count else {
             taskConditionLabel.text = "Игра кончилась"
+            answerTextField.isHidden = true
             return
         }
 
