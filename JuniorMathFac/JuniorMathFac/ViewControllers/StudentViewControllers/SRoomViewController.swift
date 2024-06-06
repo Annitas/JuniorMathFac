@@ -40,7 +40,7 @@ final class SRoomViewController: UIViewController {
         return textField
     }()
     
-    let taskConditionLabel: UILabel = {
+    private let taskConditionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 20)
@@ -51,8 +51,10 @@ final class SRoomViewController: UIViewController {
     }()
     
     private let answerButton = CustomButton(title: "Ответить")
-    private var currentTaskIndex = 0 // Индекс текущей задачи
+    private var currentTaskIndex = 0
 
+    var answerArray: [Bool] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -63,22 +65,22 @@ final class SRoomViewController: UIViewController {
     }
     
     private func startSession() {
-        // Проверяем, есть ли задачи, и отображаем первую
         if !viewModel.tasks.isEmpty {
             currentTaskIndex = 0
             displayCurrentTask()
         } else {
             taskConditionLabel.text = "Нет доступных задач"
+            answerTextField.isHidden = true
         }
     }
     
     private func displayCurrentTask() {
-        // Отображаем условие текущей задачи
         if currentTaskIndex < viewModel.tasks.count {
             let currentTask = viewModel.tasks[currentTaskIndex]
             taskConditionLabel.text = currentTask.condition
         } else {
             taskConditionLabel.text = "Игра кончилась"
+            print(answerArray)
         }
     }
     
@@ -93,14 +95,13 @@ final class SRoomViewController: UIViewController {
         
         // Проверяем ответ
         if userAnswer == currentTask.answer {
-            print("Правильный ответ!")
+            answerArray.append(true)
         } else {
-            print("Неправильный ответ!")
+            answerArray.append(false)
         }
         
-        // Переходим к следующей задаче
         currentTaskIndex += 1
-        answerTextField.text = "" // Очищаем поле ответа
+        answerTextField.text = ""
         displayCurrentTask()
     }
     
