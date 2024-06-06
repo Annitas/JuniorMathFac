@@ -10,6 +10,7 @@ import UIKit
 final class SRoomViewController: UIViewController {
     var viewModel = RoomModel(roomTitle: "", tasks: [], students: [])
     private let profileHeader = CustomHeaderTitle(title: "Контрольная работа")
+    
     private let backGroundImage: UIImageView = {
         let iv = UIImageView()
         iv.clipsToBounds = true
@@ -47,6 +48,7 @@ final class SRoomViewController: UIViewController {
         label.shadowOffset = CGSize(width: 2, height: 2)
         return label
     }()
+    private let createRoomButton = CustomButton(title: "Ответить")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +63,7 @@ final class SRoomViewController: UIViewController {
         view.addSubview(backGroundCardView)
         backGroundCardView.addSubview(taskConditionLabel)
         backGroundCardView.addSubview(answerTextField)
+        view.addSubview(createRoomButton)
         
         profileHeader.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -91,6 +94,12 @@ final class SRoomViewController: UIViewController {
             make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.40)
+        }
+        
+        createRoomButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.width.equalToSuperview().multipliedBy(0.9)
         }
     }
 }
