@@ -48,13 +48,21 @@ final class SRoomViewController: UIViewController {
         label.shadowOffset = CGSize(width: 2, height: 2)
         return label
     }()
-    private let createRoomButton = CustomButton(title: "Ответить")
+    private let answerButton = CustomButton(title: "Ответить")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         taskConditionLabel.text = viewModel.tasks.first?.condition
+        startSession(viewModel.tasks)
+        
         setupView()
+    }
+    
+    private func startSession(_ tasks: [TaskModel]) {
+        for task in tasks {
+            taskConditionLabel.text = task.condition
+        }
     }
     
     private func setupView() {
@@ -63,7 +71,7 @@ final class SRoomViewController: UIViewController {
         view.addSubview(backGroundCardView)
         backGroundCardView.addSubview(taskConditionLabel)
         backGroundCardView.addSubview(answerTextField)
-        view.addSubview(createRoomButton)
+        view.addSubview(answerButton)
         
         profileHeader.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -96,7 +104,7 @@ final class SRoomViewController: UIViewController {
             make.height.equalToSuperview().multipliedBy(0.40)
         }
         
-        createRoomButton.snp.makeConstraints { make in
+        answerButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
             make.width.equalToSuperview().multipliedBy(0.9)
