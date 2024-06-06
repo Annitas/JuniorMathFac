@@ -17,6 +17,7 @@ final class SRoomViewController: UIViewController {
         iv.image = UIImage(named: "backgroundImage")
         return iv
     }()
+    
     private let backGroundCardView: UIView = {
         let view = UIView()
         view.backgroundColor = .customGreen
@@ -48,21 +49,59 @@ final class SRoomViewController: UIViewController {
         label.shadowOffset = CGSize(width: 2, height: 2)
         return label
     }()
-    private let answerButton = CustomButton(title: "Ответить")
     
+    private let answerButton = CustomButton(title: "Ответить")
+    private var currentTaskIndex = 0 // Индекс текущей задачи
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        taskConditionLabel.text = viewModel.tasks.first?.condition
-        startSession(viewModel.tasks)
         
         setupView()
+        
+        startSession()
     }
     
-    private func startSession(_ tasks: [TaskModel]) {
-        for task in tasks {
-            taskConditionLabel.text = task.condition
+    private func startSession() {
+        // Проверяем, есть ли задачи, и отображаем первую
+        if !viewModel.tasks.isEmpty {
+            currentTaskIndex = 0
+            displayCurrentTask()
+        } else {
+            taskConditionLabel.text = "Нет доступных задач"
         }
+    }
+    
+    private func displayCurrentTask() {
+        // Отображаем условие текущей задачи
+        if currentTaskIndex < viewModel.tasks.count {
+            let currentTask = viewModel.tasks[currentTaskIndex]
+            taskConditionLabel.text = currentTask.condition
+        } else {
+            taskConditionLabel.text = "Игра кончилась"
+        }
+    }
+    
+    @objc func answerTheQuestion() {
+        guard currentTaskIndex < viewModel.tasks.count else {
+            taskConditionLabel.text = "Игра кончилась"
+            return
+        }
+
+        let currentTask = viewModel.tasks[currentTaskIndex]
+        guard let userAnswer = answerTextField.text else { return }
+        
+        // Проверяем ответ
+        if userAnswer == currentTask.answer {
+            print("Правильный ответ!")
+        } else {
+            print("Неправильный ответ!")
+        }
+        
+        // Переходим к следующей задаче
+        currentTaskIndex += 1
+        answerTextField.text = "" // Очищаем поле ответа
+        displayCurrentTask()
     }
     
     private func setupView() {
@@ -72,6 +111,8 @@ final class SRoomViewController: UIViewController {
         backGroundCardView.addSubview(taskConditionLabel)
         backGroundCardView.addSubview(answerTextField)
         view.addSubview(answerButton)
+        
+        answerButton.addTarget(self, action: #selector(answerTheQuestion), for: .touchUpInside)
         
         profileHeader.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
