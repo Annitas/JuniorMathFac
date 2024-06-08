@@ -9,7 +9,7 @@ import UIKit
 
 final class TAddTaskListController: UIViewController {
     let tableView: UITableView = .init()
-    
+    private let chooseButton = CustomButton(title: "Выбрать")
     
     var viewModel: [TaskModel] = RoomCreationViewModel.getTasksFromDataBase() {
         didSet {
@@ -24,6 +24,7 @@ final class TAddTaskListController: UIViewController {
     
     private func setupView() {
         view.addSubview(tableView)
+        view.addSubview(chooseButton)
         tableView.backgroundColor = UIColor.white
         tableView.dataSource = self
         tableView.delegate = self
@@ -37,6 +38,12 @@ final class TAddTaskListController: UIViewController {
             make.bottom.equalToSuperview()
             make.right.equalToSuperview()
             make.left.equalToSuperview()
+        }
+        
+        chooseButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.width.equalToSuperview().multipliedBy(0.9)
         }
     }
 }
