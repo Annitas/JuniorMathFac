@@ -18,6 +18,8 @@ final class TAddStudentListController: UIViewController {
         }
     }
     
+    var selectedStudents: [StudentModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -46,11 +48,25 @@ final class TAddStudentListController: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
             make.width.equalToSuperview().multipliedBy(0.9)
         }
+        
+        chooseButton.addTarget(self, action: #selector(chooseButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func chooseButtonTapped() {
+        print("Selected students: \(selectedStudents)")
     }
 }
 
 extension TAddStudentListController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedStudent = viewModel[indexPath.row]
+        if let index = selectedStudents.firstIndex(where: { $0.id == selectedStudent.id }) {
+            selectedStudents.remove(at: index)
+        } else {
+            selectedStudents.append(selectedStudent)
+        }
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
 }
 
 extension TAddStudentListController: UITableViewDataSource {
@@ -61,7 +77,13 @@ extension TAddStudentListController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TStudentListTableViewCell.self), for: indexPath) as! TStudentListTableViewCell
         cell.viewModel = viewModel[indexPath.row]
+        
+        if selectedStudents.contains(where: { $0.id == viewModel[indexPath.row].id }) {
+            cell.backgroundColor = UIColor.lightGray
+        } else {
+            cell.backgroundColor = UIColor.white
+        }
+        
         return cell
     }
-    
 }
