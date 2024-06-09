@@ -56,7 +56,11 @@ final class TMainScreenViewController: UIViewController {
     }
     
     @objc func openMakeRoom() {
-        navigationController?.pushViewController(TRoomCreationViewController(), animated: true)
+        let vc = TRoomCreationViewController()
+        vc.onRoomCreated = { room in
+            print("ROOOM: \(room)")
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func openStatistics() {

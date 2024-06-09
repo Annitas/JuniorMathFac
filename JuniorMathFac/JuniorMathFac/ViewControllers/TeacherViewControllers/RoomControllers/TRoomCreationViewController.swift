@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 final class TRoomCreationViewController: UIViewController {
+    var onRoomCreated: ((RoomModel) -> Void)?
     private let backGroundImage: UIImageView = {
         let iv = UIImageView()
         iv.clipsToBounds = true
@@ -91,6 +92,7 @@ final class TRoomCreationViewController: UIViewController {
     private func setupView() {
         addStudentsButton.addTarget(self, action: #selector(openStudentList), for: .touchUpInside)
         addTasksButton.addTarget(self, action: #selector(openTasksList), for: .touchUpInside)
+        createRoomButton.addTarget(self, action: #selector(createRoom), for: .touchUpInside)
         
         view.backgroundColor = .systemBackground
         view.addSubview(backGroundImage)
@@ -133,6 +135,18 @@ final class TRoomCreationViewController: UIViewController {
             self?.tasksTitlesLabel.text = self?.room.tasks.map { "\($0.title)" }.joined(separator: "\n")
         }
         navigationController?.pushViewController(taskListVC, animated: true)
+    }
+    
+    @objc func createRoom() {
+        if let title = roomTitleTextField.text, !title.isEmpty {
+            room.roomTitle = title
+            onRoomCreated?(room)
+            navigationController?.popViewController(animated: true)
+        } else {
+            let alert = UIAlertController(title: "Ошибка", message: "Введите название комнаты", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     private func addConstraints() {

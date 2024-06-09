@@ -7,7 +7,7 @@
 import Foundation
 
 struct RoomModel: Codable {
-    let roomTitle: String
+    var roomTitle: String
     var tasks: [TaskModel]
     var students: [StudentModel]
 }
