@@ -9,17 +9,22 @@ import Foundation
 
 final class RoomCreationViewModel {
     static func getStudentsFromDataBase() -> [StudentModel] {
-        let students = FakeDatabase()
-        return students.childrenArray
+        let db = FakeDatabase()
+        return db.childrenArray
     }
     
     static func getTasksFromDataBase() -> [TaskModel] {
-        let tasks = FakeDatabase()
-        return tasks.tasksArray
+        let db = FakeDatabase()
+        return db.tasksArray
     }
     
     static func getAvailableRoomsFromDataBase() -> [RoomModel] {
-        let rooms = FakeDatabase()
-        return [RoomModel(roomTitle: "Дроби 8 класс", tasks: rooms.tasksArray, students: rooms.childrenArray)]
+        let db = FakeDatabase()
+        return db.roomsArray
+    }
+    
+    static func addRoomToDatabase(room: RoomModel) {
+        let db = FakeDatabase()
+        db.roomsArray.append(room)
     }
 }

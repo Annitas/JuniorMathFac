@@ -10,7 +10,12 @@ import SnapKit
 
 final class TMainScreenViewController: UIViewController {
     private let profileHeader = CustomHeaderTitle(title: "Профиль")
-    
+    var addingRom: ((RoomModel) -> ())?
+    var room: RoomModel = RoomModel(roomTitle: "", tasks: [], students: []) {
+        didSet {
+            RoomCreationViewModel.addRoomToDatabase(room: room)
+        }
+    }
     private let backGroundImage: UIImageView = {
         let iv = UIImageView()
         iv.clipsToBounds = true
@@ -57,8 +62,8 @@ final class TMainScreenViewController: UIViewController {
     
     @objc func openMakeRoom() {
         let vc = TRoomCreationViewController()
-        vc.onRoomCreated = { room in
-            print("ROOOM: \(room)")
+        vc.onRoomCreated = { [weak self] room in
+            self?.room = room
         }
         navigationController?.pushViewController(vc, animated: true)
     }

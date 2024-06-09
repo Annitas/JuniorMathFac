@@ -25,7 +25,6 @@
 		757A05CC2C0F53D500833503 /* SAvailableRoomsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A05CB2C0F53D500833503 /* SAvailableRoomsController.swift */; };
 		757A05CE2C0F560C00833503 /* SAvailableRoomsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A05CD2C0F560C00833503 /* SAvailableRoomsTableViewCell.swift */; };
 		757A05D02C0F5B4A00833503 /* SRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A05CF2C0F5B4A00833503 /* SRoomViewController.swift */; };
-		757A05DC2C1204F900833503 /* RoomSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A05DB2C1204F900833503 /* RoomSessionViewModel.swift */; };
 		757A8D022BB4765500E3DF74 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A8CFF2BB4765500E3DF74 /* CustomButton.swift */; };
 		757A8D032BB4765500E3DF74 /* CustomHeaderTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757A8D002BB4765500E3DF74 /* CustomHeaderTitle.swift */; };
 		757CC8442BC8087C001E2F83 /* TRoomCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CC8422BC8087C001E2F83 /* TRoomCreationViewController.swift */; };
@@ -62,7 +61,6 @@
 		757A05CB2C0F53D500833503 /* SAvailableRoomsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAvailableRoomsController.swift; sourceTree = "<group>"; };
 		757A05CD2C0F560C00833503 /* SAvailableRoomsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAvailableRoomsTableViewCell.swift; sourceTree = "<group>"; };
 		757A05CF2C0F5B4A00833503 /* SRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRoomViewController.swift; sourceTree = "<group>"; };
-		757A05DB2C1204F900833503 /* RoomSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSessionViewModel.swift; sourceTree = "<group>"; };
 		757A8CFF2BB4765500E3DF74 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		757A8D002BB4765500E3DF74 /* CustomHeaderTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderTitle.swift; sourceTree = "<group>"; };
 		757CC8422BC8087C001E2F83 /* TRoomCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRoomCreationViewController.swift; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				75F606B02C0324AB00BA201E /* RoomCreationViewModel.swift */,
-				757A05DB2C1204F900833503 /* RoomSessionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -380,7 +377,6 @@
 				750EF2072BC625870062C597 /* FakeDatabase.swift in Sources */,
 				75F606AE2C023C3600BA201E /* TStudentListTableViewCell.swift in Sources */,
 				75B38E012B0B534A000CF6EF /* SceneDelegate.swift in Sources */,
-				757A05DC2C1204F900833503 /* RoomSessionViewModel.swift in Sources */,
 				757A8D032BB4765500E3DF74 /* CustomHeaderTitle.swift in Sources */,
 				750EF2142BC632960062C597 /* Users_RoomModel.swift in Sources */,
 				757CC8442BC8087C001E2F83 /* TRoomCreationViewController.swift in Sources */,
