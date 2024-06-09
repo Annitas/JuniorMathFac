@@ -8,7 +8,7 @@
 import Foundation
 
 struct TaskModel: Codable {
-//    let id: Int
+    let id: Int
 //    let task_class: Int
 //    let topic: String
     let condition: String

@@ -17,6 +17,8 @@ final class TAddTaskListController: UIViewController {
         }
     }
     
+    var selectedTasks: [TaskModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -45,11 +47,24 @@ final class TAddTaskListController: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-20)
             make.width.equalToSuperview().multipliedBy(0.9)
         }
+        chooseButton.addTarget(self, action: #selector(chooseButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func chooseButtonTapped() {
+        print("Selected students: \(selectedTasks)")
     }
 }
 
 extension TAddTaskListController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedTask = viewModel[indexPath.row]
+        if let index = selectedTasks.firstIndex(where: { $0.id == selectedTask.id }) {
+            selectedTasks.remove(at: index)
+        } else {
+            selectedTasks.append(selectedTask)
+        }
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
 }
 
 extension TAddTaskListController: UITableViewDataSource {
@@ -60,6 +75,13 @@ extension TAddTaskListController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TTasksTableViewCell.self), for: indexPath) as! TTasksTableViewCell
         cell.viewModel = viewModel[indexPath.row]
+        
+        if selectedTasks.contains(where: { $0.id == viewModel[indexPath.row].id }) {
+            cell.backgroundColor = UIColor.lightGray
+        } else {
+            cell.backgroundColor = UIColor.white
+        }
+        
         return cell
     }
     
