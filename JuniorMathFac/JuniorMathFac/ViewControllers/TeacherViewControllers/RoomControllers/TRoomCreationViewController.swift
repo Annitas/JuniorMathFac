@@ -66,13 +66,28 @@ final class TRoomCreationViewController: UIViewController {
     private let addStudentsButton = CustomButton(title: "Добавить учеников")
     private let createRoomButton = CustomButton(title: "Создать комнату")
     
-    let options = ["Third Class", "Fourth Class", "Fifth Class", "Sixth Class"]
+    var room = RoomModel(roomTitle: "", tasks: [], students: [])
     
+    private let studentsNamesLabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private let tasksTitlesLabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.numberOfLines = 0
+        return label
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         addConstraints()
     }
+    
     private func setupView() {
         addStudentsButton.addTarget(self, action: #selector(openStudentList), for: .touchUpInside)
         addTasksButton.addTarget(self, action: #selector(openTasksList), for: .touchUpInside)
@@ -80,8 +95,9 @@ final class TRoomCreationViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(backGroundImage)
         view.addSubview(createRoomHeader)
-        view.addSubview(createRoomHeader)
         view.addSubview(backGroundCardView)
+        view.addSubview(studentsNamesLabel)
+        view.addSubview(tasksTitlesLabel)
         backGroundCardView.addSubview(roomTitleTextField)
         backGroundCardView.addSubview(studentCountTextField)
         backGroundCardView.addSubview(studentCountLabel)
@@ -101,10 +117,22 @@ final class TRoomCreationViewController: UIViewController {
     }
     
     @objc func openStudentList() {
-        navigationController?.pushViewController(TAddStudentListController(), animated: true)
+        let studentListVC = TAddStudentListController()
+        studentListVC.onStudentsSelected = { [weak self] selectedStudents in
+            self?.room.students = selectedStudents
+            self?.studentsNamesLabel.text = self?.room.students.map { "\($0.firstName) \($0.lastName)" }.joined(separator: "\n")
+            self?.studentCountTextField.text = "\(selectedStudents.count)"
+        }
+        navigationController?.pushViewController(studentListVC, animated: true)
     }
+    
     @objc func openTasksList() {
-        navigationController?.pushViewController(TAddTaskListController(), animated: true)
+        let taskListVC = TAddTaskListController()
+        taskListVC.onTasksSelected = { [weak self] selectedTasks in
+            self?.room.tasks = selectedTasks
+            self?.tasksTitlesLabel.text = self?.room.tasks.map { "\($0.title)" }.joined(separator: "\n")
+        }
+        navigationController?.pushViewController(taskListVC, animated: true)
     }
     
     private func addConstraints() {
@@ -132,6 +160,19 @@ final class TRoomCreationViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().offset(-23)
         }
+        
+        studentsNamesLabel.snp.makeConstraints { make in
+            make.top.equalTo(backGroundImage.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.9)
+        }
+        
+        tasksTitlesLabel.snp.makeConstraints { make in
+            make.top.equalTo(studentsNamesLabel.snp.bottom)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.9)
+        }
+        
         studentCountTextField.snp.makeConstraints { make in
             make.top.equalTo(roomTitleTextField.snp.bottom).offset(10)
             make.width.equalTo(100)

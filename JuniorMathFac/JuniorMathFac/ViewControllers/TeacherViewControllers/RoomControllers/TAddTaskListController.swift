@@ -10,7 +10,7 @@ import UIKit
 final class TAddTaskListController: UIViewController {
     let tableView: UITableView = .init()
     private let chooseButton = CustomButton(title: "Выбрать")
-    
+    var onTasksSelected: (([TaskModel]) -> Void)?
     var viewModel: [TaskModel] = RoomCreationViewModel.getTasksFromDataBase() {
         didSet {
             tableView.reloadData()
@@ -51,7 +51,8 @@ final class TAddTaskListController: UIViewController {
     }
     
     @objc private func chooseButtonTapped() {
-        print("Selected students: \(selectedTasks)")
+        onTasksSelected?(selectedTasks)
+        navigationController?.popViewController(animated: true)
     }
 }
 

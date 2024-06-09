@@ -10,7 +10,7 @@ import Foundation
 struct TaskModel: Codable {
     let id: Int
 //    let task_class: Int
-//    let topic: String
+    let title: String
     let condition: String
     let answer: String
 //    let solve: String

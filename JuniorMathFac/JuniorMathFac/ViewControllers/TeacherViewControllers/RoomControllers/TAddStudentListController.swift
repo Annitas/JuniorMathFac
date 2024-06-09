@@ -11,7 +11,7 @@ import SnapKit
 final class TAddStudentListController: UIViewController {
     let tableView: UITableView = .init()
     private let chooseButton = CustomButton(title: "Выбрать")
-    
+    var onStudentsSelected: (([StudentModel]) -> Void)?
     var viewModel: [StudentModel] = RoomCreationViewModel.getStudentsFromDataBase() {
         didSet {
             tableView.reloadData()
@@ -53,7 +53,8 @@ final class TAddStudentListController: UIViewController {
     }
     
     @objc private func chooseButtonTapped() {
-        print("Selected students: \(selectedStudents)")
+        onStudentsSelected?(selectedStudents)
+        navigationController?.popViewController(animated: true)
     }
 }
 

@@ -8,6 +8,6 @@ import Foundation
 
 struct RoomModel: Codable {
     let roomTitle: String
-    let tasks: [TaskModel]
-    let students: [StudentModel]
+    var tasks: [TaskModel]
+    var students: [StudentModel]
 }

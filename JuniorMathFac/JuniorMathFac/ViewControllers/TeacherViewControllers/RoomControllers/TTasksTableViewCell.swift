@@ -8,7 +8,7 @@
 import UIKit
 
 final class TTasksTableViewCell: UITableViewCell {
-    var viewModel: TaskModel = TaskModel(id: -1, condition: "", answer: "") {
+    var viewModel: TaskModel = TaskModel(id: -1, title: "", condition: "", answer: "") {
         didSet {
             conditionLabel.text = viewModel.condition
         }
