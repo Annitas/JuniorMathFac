@@ -14,6 +14,8 @@ final class TMainScreenViewController: UIViewController {
     var room: RoomModel = RoomModel(roomTitle: "", tasks: [], students: []) {
         didSet {
             RoomCreationViewModel.addRoomToDatabase(room: room)
+//            let vm = TStatisticsViewController()
+//            vm.viewModel = RoomCreationViewModel.getAvailableRoomsFromDataBase()
         }
     }
     private let backGroundImage: UIImageView = {
