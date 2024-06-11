@@ -6,8 +6,9 @@
 //
 
 import UIKit
-
+// MARK: Session
 final class SRoomViewController: UIViewController {
+    var onGameDone: (([Bool]) -> Void)?
     var viewModel = RoomModel(roomTitle: "", tasks: [], students: [])
     private let profileHeader = CustomHeaderTitle(title: "Контрольная работа")
     
@@ -80,8 +81,13 @@ final class SRoomViewController: UIViewController {
             taskConditionLabel.text = currentTask.condition
         } else {
             taskConditionLabel.text = "Игра кончилась"
+            onGameDone?(answerArray)
             answerTextField.isHidden = true
-            print(answerArray)
+            
+            // Переход к SStatisticsViewController
+            let statisticsVC = SStatisticsViewController()
+            SStatisticsViewController.answer = answerArray
+            navigationController?.pushViewController(statisticsVC, animated: true)
         }
     }
     

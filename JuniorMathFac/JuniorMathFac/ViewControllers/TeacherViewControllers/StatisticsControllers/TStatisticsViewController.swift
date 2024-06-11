@@ -18,7 +18,7 @@ final class TStatisticsViewController: UIViewController {
     
     private let tasksListLabel = CustomHeaderTitle(title: "Статистика")
     let tableView: UITableView = .init()
-    
+    var gameResults: [Bool] = []
     var viewModel: [RoomModel] = RoomCreationViewModel.getAvailableRoomsFromDataBase() {
         didSet {
             tableView.reloadData()
@@ -63,6 +63,9 @@ final class TStatisticsViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
         }
     }
+    func updateStatistics(with results: [Bool]) {
+        self.gameResults = results
+    }
 }
 
 extension TStatisticsViewController: UITableViewDelegate {
@@ -83,6 +86,8 @@ extension TStatisticsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = SRoomViewController()
         vc.viewModel = viewModel[indexPath.row]
-        navigationController?.pushViewController(vc, animated: true)
+        
+        let statisticsVC = SStatisticsViewController()
+        navigationController?.pushViewController(statisticsVC, animated: true)
     }
 }
